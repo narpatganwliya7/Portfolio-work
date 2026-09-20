@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#05060a">
+<meta name="description" content="Narpat Ganwliya — Customer Experience Data Analyst who builds analytics copilots and agents.">
+<title>Narpat Ganwliya — Data Analyst &amp; Analytics Automation</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2305060a'/%3E%3Cpath d='M18 46V18h6l16 20V18h6v28h-6L24 26v20z' fill='%2322d3ee'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght,wdth@400..900,75..125&display=swap" rel="stylesheet">
+<script>
+(function(){
+  if(!window.matchMedia || !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    document.documentElement.classList.add('intro');
+    setTimeout(function(){document.documentElement.classList.remove('intro');},5000);
+  }
+})();
+</script>
+<style>
+:root{
+  --space:#05060a; --ink:#f2f5fa; --mist:#9aa6bd; --dim:#5b6780;
+  --cyan:#22d3ee; --violet:#a855f7; --magenta:#ec4899; --amber:#fbbf24; --lime:#a3e635;
+  --panel:#0b0e17; --panel-2:#10141f; --line:rgba(242,245,250,.09);
+  --safe-t:env(safe-area-inset-top,0px); --safe-b:env(safe-area-inset-bottom,0px);
+  --safe-l:env(safe-area-inset-left,0px); --safe-r:env(safe-area-inset-right,0px);
+  color-scheme: dark;
+}
+*,*:before,*:after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{background:var(--space)}
+body{
+  background:var(--space); color:var(--ink);
+  font-family:'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  padding-left:var(--safe-l); padding-right:var(--safe-r);
+  overflow-x:hidden;
+}
+img,svg{display:block; max-width:100%}
+a{color:inherit}
+.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip-link{position:fixed;left:12px;top:-60px;z-index:200;background:var(--cyan);color:#05060a;padding:10px 16px;border-radius:8px;font-weight:700;transition:top .2s}
+.skip-link:focus{top:calc(12px + var(--safe-t))}
+
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px}
+
+/* ---------- Nav (glass pill, Nival-style) ---------- */
+.site-nav{
+  position:fixed; left:0; right:0; top:calc(16px + var(--safe-t)); z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 clamp(16px,4vw,40px);
+  pointer-events:none;
+}
+.site-nav>*{pointer-events:auto}
+.brand{
+  font-weight:800; font-size:17px; letter-spacing:-.02em;
+  display:flex; align-items:center; gap:9px;
+  padding:10px 16px; border-radius:16px;
+  background:rgba(11,14,23,.55); border:1px solid var(--line);
+  backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  text-decoration:none;
+}
+.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime)}
+.nav-pill{
+  display:flex; gap:4px; padding:5px; border-radius:20px;
+  border:1px solid var(--line); background:rgba(11,14,23,.55);
+  box-shadow:inset 0 0 14px rgba(255,255,255,.02);
+  backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+}
+.nav-pill a{
+  padding:9px 16px; border-radius:15px; text-decoration:none;
+  font-size:14.5px; color:var(--mist); transition:background .2s,color .2s;
+}
+.nav-pill a:hover,.nav-pill a:focus-visible{color:var(--ink); background:rgba(255,255,255,.06)}
+.nav-pill a.active{color:var(--space); background:linear-gradient(120deg,var(--cyan),var(--violet))}
+.nav-cta{
+  padding:10px 18px; border-radius:16px; text-decoration:none; font-weight:600; font-size:14px;
+  background:rgba(11,14,23,.55); border:1px solid var(--line);
+  backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  display:flex; align-items:center; gap:8px;
+}
+.nav-cta:hover{border-color:rgba(34,211,238,.5)}
+.nav-cta .pulse{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+.menu-btn{
+  display:none; width:44px; height:44px; border-radius:14px; border:1px solid var(--line);
+  background:rgba(11,14,23,.55); backdrop-filter:blur(14px); position:relative;
+}
+.menu-btn span{position:absolute;left:12px;right:12px;height:2px;background:var(--ink);transition:transform .25s,opacity .2s}
+.menu-btn span:nth-child(1){top:16px}
+.menu-btn span:nth-child(2){top:22px}
+.menu-btn span:nth-child(3){top:28px}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(40deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-40deg)}
+.menu-panel{
+  position:fixed; left:16px; right:16px; top:calc(78px + var(--safe-t)); z-index:99;
+  display:none; flex-direction:column; gap:4px; padding:12px;
+  border-radius:20px; border:1px solid var(--line); background:rgba(9,11,18,.92);
+  backdrop-filter:blur(20px); box-shadow:0 20px 50px rgba(0,0,0,.5);
+}
+.menu-panel a{padding:14px 16px;border-radius:14px;text-decoration:none;font-size:16px;color:var(--ink)}
+.menu-panel a.active{background:rgba(34,211,238,.12); color:var(--cyan)}
+.menu-panel.open{display:flex}
+
+/* ---------- Hero / particle stage ---------- */
+.hero-pin{position:relative; height:400vh}
+.hero-view{
+  position:sticky; top:0; height:100svh; width:100%;
+  overflow:hidden; display:flex; align-items:center;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(168,85,247,.16), transparent 45%),
+    radial-gradient(circle at 75% 75%, rgba(34,211,238,.13), transparent 50%),
+    var(--space);
+}
+#particle-canvas{position:absolute; inset:0; width:100%; height:100%; display:block}
+.hero-copy{
+  position:relative; z-index:3; padding:0 clamp(20px,6vw,72px);
+  max-width:980px; margin-top:calc(-4vh + var(--safe-t)*0);
+}
+.eyebrow{
+  font-size:14px; color:var(--mist); margin:0 0 18px; font-weight:500;
+  display:inline-flex; align-items:center; gap:9px;
+}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime)}
+h1{
+  font-size:clamp(2.7rem,9vw,6.6rem); line-height:.92; letter-spacing:-.04em;
+  margin:0 0 22px; font-weight:800; font-variation-settings:"wdth" 108;
+}
+.hero-line{
+  font-size:clamp(1.05rem,2.3vw,1.5rem); line-height:1.42; color:var(--mist);
+  max-width:640px; margin:0; font-weight:400;
+}
+.grad{
+  background:linear-gradient(90deg,var(--cyan),var(--violet) 55%,var(--magenta));
+  -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600;
+}
+.scroll-hint{
+  position:absolute; left:clamp(20px,6vw,72px); bottom:calc(28px + var(--safe-b)); z-index:3;
+  font-size:12.5px; color:var(--dim); display:flex; align-items:center; gap:10px;
+}
+.scroll-hint svg{width:14px;height:18px}
+
+.captions{position:absolute; right:clamp(16px,5vw,72px); bottom:0; top:0; z-index:3; display:flex; align-items:center; pointer-events:none}
+.caption{
+  position:absolute; right:0; width:min(360px,86vw); pointer-events:auto;
+  opacity:0; transform:translateY(14px); transition:opacity .5s ease,transform .5s ease;
+}
+.caption.show{opacity:1; transform:none}
+.caption .num{font-size:13px; color:var(--dim); letter-spacing:.02em; margin:0 0 8px; font-weight:600}
+.caption h2{font-size:clamp(1.2rem,2.4vw,1.6rem); margin:0 0 10px; letter-spacing:-.02em; font-weight:700}
+.caption p{margin:0; font-size:14.5px; line-height:1.55; color:var(--mist)}
+
+/* reveal demo (Nival spotlight mechanic, repurposed) */
+.reveal-demo{
+  position:absolute; left:clamp(20px,6vw,72px); bottom:calc(96px + var(--safe-b)); z-index:3;
+  width:220px; height:150px; border-radius:16px; overflow:hidden;
+  border:1px solid var(--line); background:var(--panel);
+  opacity:0; transition:opacity .6s ease;
+}
+.reveal-demo.on{opacity:1}
+.reveal-stack{position:relative; width:100%; height:100%}
+.reveal-scatter,.reveal-grid,.reveal-mask-canvas{position:absolute; inset:0; width:100%; height:100%}
+.reveal-scatter{z-index:1}
+.reveal-grid{z-index:2; mask-repeat:no-repeat; -webkit-mask-repeat:no-repeat; mask-size:100% 100%; -webkit-mask-size:100% 100%; mask-mode:alpha}
+.reveal-mask-canvas{display:none}
+.reveal-label{position:absolute; left:10px; bottom:8px; z-index:3; font-size:11px; color:var(--mist); background:rgba(5,6,10,.55); padding:3px 8px; border-radius:8px}
+
+/* ---------- Section shell ---------- */
+main{position:relative; z-index:2; background:var(--space)}
+section{padding:clamp(64px,10vw,120px) clamp(20px,6vw,72px)}
+.section-head{max-width:640px; margin:0 0 clamp(36px,6vw,56px)}
+.section-head h2{font-size:clamp(1.9rem,4.4vw,3rem); letter-spacing:-.03em; margin:0 0 14px; font-weight:800; font-variation-settings:"wdth" 105}
+.section-head p{font-size:16px; line-height:1.6; color:var(--mist); margin:0}
+
+.reveal-el{opacity:0; transform:translateY(22px); transition:opacity .7s ease,transform .7s ease}
+.reveal-el.in{opacity:1; transform:none}
+
+/* ---------- Work ---------- */
+.work-grid{display:grid; gap:22px}
+.card{
+  position:relative; border-radius:24px; padding:clamp(24px,3.6vw,36px);
+  background:linear-gradient(160deg,var(--panel-2),var(--panel));
+  border:1px solid var(--line); overflow:hidden;
+}
+.card:before{
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:0; transition:opacity .3s ease;
+  background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%), rgba(34,211,238,.10), transparent 60%);
+}
+.card:hover:before{opacity:1}
+.card-top{display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap}
+.pills{display:flex; flex-wrap:wrap; gap:8px}
+.pill{font-size:12.5px; padding:6px 12px; border-radius:999px; border:1px solid var(--line); color:var(--mist); background:rgba(255,255,255,.02)}
+.sample-badge{
+  display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:700;
+  color:#1a1305; background:var(--amber); padding:6px 12px; border-radius:999px; white-space:nowrap;
+}
+.card h3{font-size:clamp(1.3rem,2.6vw,1.8rem); margin:20px 0 12px; letter-spacing:-.02em; font-weight:700}
+.card p{font-size:15.5px; line-height:1.65; color:var(--mist); margin:0 0 12px; max-width:66ch}
+.card p strong{color:var(--ink); font-weight:600}
+
+/* ---------- Dashboard ---------- */
+.dash{margin-top:26px; border-radius:20px; border:1px solid var(--line); background:rgba(5,6,10,.5); padding:clamp(16px,3vw,26px)}
+.dash-top{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:18px}
+.synthetic-tag{font-size:12px; color:var(--dim)}
+.chips{display:flex; gap:8px; flex-wrap:wrap}
+.chip{
+  font-size:13px; padding:8px 14px; border-radius:999px; border:1px solid var(--line);
+  background:rgba(255,255,255,.02); color:var(--mist); cursor:pointer;
+}
+.chip[aria-pressed="true"]{
+  color:#05060a; font-weight:700; border-color:transparent;
+  background:linear-gradient(100deg,var(--cyan),var(--violet));
+}
+.kpi-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:22px}
+.kpi{border-radius:14px; padding:16px; border:1px solid var(--line); background:rgba(255,255,255,.02)}
+.kpi .k-label{font-size:12.5px; color:var(--mist); margin:0 0 8px}
+.kpi .k-val{font-size:clamp(1.3rem,2.6vw,1.7rem); font-weight:800; margin:0; letter-spacing:-.02em}
+.kpi.c1{border-top:2px solid var(--cyan)} .kpi.c2{border-top:2px solid var(--violet)}
+.kpi.c3{border-top:2px solid var(--magenta)} .kpi.c4{border-top:2px solid var(--amber)}
+.dash-charts{display:grid; grid-template-columns:1.1fr 1fr; gap:20px}
+.chart-box{border-radius:14px; border:1px solid var(--line); background:rgba(255,255,255,.015); padding:16px}
+.chart-box h4{margin:0 0 4px; font-size:14.5px; font-weight:700}
+.chart-box .sub{margin:0 0 14px; font-size:12.5px; color:var(--dim)}
+.heat-row{display:flex; align-items:center; gap:6px; margin-bottom:4px}
+.heat-cohort-label{width:54px; font-size:11px; color:var(--dim); flex:0 0 54px}
+.heat-cells{flex:1 1 auto; display:grid; grid-template-columns:repeat(var(--heat-cols,6),1fr); gap:6px}
+.heat-cell{
+  min-width:0; aspect-ratio:1.5; border-radius:5px; position:relative;
+  display:flex; align-items:center; justify-content:center; font-size:10px; color:rgba(5,6,10,.75); font-weight:700;
+}
+.bubble-svg{width:100%; height:auto}
+.takeaway{margin-top:18px; padding:14px 16px; border-radius:14px; background:rgba(168,85,247,.08); border:1px solid rgba(168,85,247,.25); font-size:14.5px; line-height:1.55; color:var(--ink)}
+.takeaway b{color:var(--cyan)}
+
+/* ---------- Background ---------- */
+.bio p{font-size:16px; line-height:1.7; color:var(--mist); max-width:70ch; margin:0 0 16px}
+.skill-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:36px}
+.skill-block{border:1px solid var(--line); border-radius:16px; padding:18px; background:rgba(255,255,255,.02)}
+.skill-block h4{margin:0 0 10px; font-size:14px; color:var(--cyan)}
+.skill-block p{margin:0; font-size:13.5px; line-height:1.55; color:var(--mist)}
+
+/* ---------- Contact ---------- */
+.contact{background:linear-gradient(180deg,var(--space),#070911)}
+.contact-inner{max-width:720px}
+.contact h2{font-size:clamp(2.2rem,5.6vw,3.6rem); letter-spacing:-.03em; margin:0 0 18px; font-weight:800}
+.contact p{font-size:16.5px; line-height:1.6; color:var(--mist); max-width:56ch; margin:0 0 34px}
+.contact-links{display:flex; flex-direction:column; gap:2px; border-top:1px solid var(--line)}
+.contact-links a{
+  display:flex; align-items:center; justify-content:space-between; padding:18px 4px;
+  text-decoration:none; border-bottom:1px solid var(--line); font-size:17px; transition:color .2s;
+}
+.contact-links a:hover,.contact-links a:focus-visible{color:var(--cyan)}
+.contact-links a span.arrow{color:var(--dim); transition:transform .2s}
+.contact-links a:hover span.arrow{transform:translateX(4px); color:var(--cyan)}
+footer{padding:26px clamp(20px,6vw,72px) calc(26px + var(--safe-b)); color:var(--dim); font-size:12.5px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px}
+
+.toast{
+  position:fixed; left:50%; bottom:calc(24px + var(--safe-b)); transform:translate(-50%,16px);
+  z-index:150; padding:11px 18px; border-radius:22px; color:var(--ink); font-size:14px;
+  background:rgba(6,8,14,.92); border:1px solid var(--line); opacity:0; pointer-events:none; transition:.24s;
+}
+.toast.show{opacity:1; transform:translate(-50%,0)}
+
+/* ---------- Intro entrance ---------- */
+html.intro .site-nav>*, html.intro .hero-copy>*, html.intro .scroll-hint{opacity:0}
+html.intro .hero-copy h1{transform:translateY(18px)}
+html.intro .hero-copy .hero-line{transform:translateY(14px)}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important; transition:none!important; scroll-behavior:auto!important}
+  .hero-pin{height:auto}
+  .hero-view{position:relative; height:88svh}
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width:980px){
+  .kpi-grid{grid-template-columns:repeat(2,1fr)}
+  .dash-charts{grid-template-columns:1fr}
+  .skill-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:760px){
+  .nav-pill,.nav-cta{display:none}
+  .menu-btn{display:block}
+  .captions{position:static; margin-top:26px; height:auto; width:100%; padding:0 clamp(20px,6vw,72px); display:flex; flex-direction:column; align-items:stretch; gap:22px}
+  .caption{position:relative; opacity:1; transform:none; width:100%; margin-bottom:0}
+  .reveal-demo{display:none}
+  .hero-pin{height:auto}
+  .hero-view{position:relative; height:auto; min-height:100svh; padding:120px 0 8vh; flex-direction:column; align-items:stretch; justify-content:flex-start}
+}
+@media (max-width:520px){
+  .kpi-grid{grid-template-columns:repeat(2,1fr)}
+  .skill-grid{grid-template-columns:1fr 1fr}
+  .heat-cohort-label{width:38px; flex-basis:38px}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#work">Skip to work</a>
+
+<header class="site-nav" aria-label="Primary">
+  <a class="brand" href="#home"><span class="dot" aria-hidden="true"></span>Narpat Ganwliya</a>
+  <nav class="nav-pill" aria-label="Sections">
+    <a href="#home" class="active">Home</a>
+    <a href="#work">Work</a>
+    <a href="#about">Background</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a class="nav-cta" href="#contact"><span class="pulse" aria-hidden="true"></span>Let's talk</a>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<nav class="menu-panel" id="menuPanel" aria-label="Sections" aria-hidden="true">
+  <a href="#home" class="active">Home</a>
+  <a href="#work">Work</a>
+  <a href="#about">Background</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<main id="main">
+  <div class="hero-pin" id="home">
+    <div class="hero-view">
+      <canvas id="particle-canvas" aria-hidden="true"></canvas>
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Paris · open to permanent roles</p>
+        <h1>Narpat Ganwliya</h1>
+        <p class="hero-line">I build <span class="grad">analytics copilots and agents</span> that do the repetitive half of data work, so the thinking gets the time.</p>
+      </div>
+      <div class="reveal-demo" id="revealDemo" aria-hidden="true">
+        <div class="reveal-stack" id="revealStack">
+          <svg class="reveal-scatter" viewBox="0 0 220 150" xmlns="http://www.w3.org/2000/svg"></svg>
+          <svg class="reveal-grid" id="revealGrid" viewBox="0 0 220 150" xmlns="http://www.w3.org/2000/svg"></svg>
+          <canvas class="reveal-mask-canvas" id="revealMaskCanvas"></canvas>
+        </div>
+        <span class="reveal-label">hover: structure is a decision</span>
+      </div>
+      <div class="captions" id="captions">
+        <div class="caption" data-stage="0">
+          <p class="num">01</p>
+          <h2>Raw data has no shape</h2>
+          <p>Events, tickets, surveys, transactions. Millions of points with nothing holding them together and no question attached.</p>
+        </div>
+        <div class="caption" data-stage="1">
+          <p class="num">02</p>
+          <h2>Structure is a decision</h2>
+          <p>Choosing what to measure is the part that matters. The model is downstream of knowing which question is worth answering.</p>
+        </div>
+        <div class="caption" data-stage="3">
+          <p class="num">03</p>
+          <h2>Agents do the rest</h2>
+          <p>Collection, cleaning, formatting, distribution. Everything between the question and the answer can run without a person in it.</p>
+        </div>
+      </div>
+      <p class="scroll-hint"><svg viewBox="0 0 14 18" fill="none" aria-hidden="true"><rect x="1" y="1" width="12" height="16" rx="6" stroke="#5b6780" stroke-width="1.3"/><circle cx="7" cy="6" r="1.4" fill="#22d3ee"/></svg>Scroll</p>
+    </div>
+  </div>
+
+  <section id="work" aria-label="Work">
+    <div class="section-head reveal-el">
+      <h2>Work</h2>
+      <p>Three builds, chosen to match what customer experience and analytics teams are actually hiring for. The retention project carries a live, interactive dashboard below.</p>
+    </div>
+    <div class="work-grid">
+
+      <article class="card reveal-el" data-spot="1">
+        <div class="card-top">
+          <div class="pills">
+            <span class="pill">Analytics copilot</span>
+            <span class="pill">LLM agents</span>
+            <span class="pill">Text to SQL</span>
+          </div>
+          <span class="sample-badge">Sample</span>
+        </div>
+        <h3>Ask the warehouse a question in plain language</h3>
+        <p>Most dashboards die because the question someone has on Tuesday was not one of the filters. This is an agent that reads the schema, writes the SQL, runs it, and returns a chart with the query attached so an analyst can check it. <strong>The hard part is refusal:</strong> knowing when a question cannot be answered from the data rather than confidently answering the wrong one.</p>
+      </article>
+
+      <article class="card reveal-el" data-spot="1">
+        <div class="card-top">
+          <div class="pills">
+            <span class="pill">Retention intelligence</span>
+            <span class="pill">Forecasting</span>
+            <span class="pill">Cohorts</span>
+          </div>
+          <span class="sample-badge">Sample</span>
+        </div>
+        <h3>Which customers are leaving, and how much it costs</h3>
+        <p>Cohort retention, churn risk and the revenue attached to it on one screen, with a forecast that says what next quarter looks like if nothing changes. <strong>Built around the decision, not the data model:</strong> the question is which segment to spend the retention budget on.</p>
+
+        <div class="dash" id="dashboard" role="group" aria-label="Retention intelligence dashboard, synthetic data">
+          <div class="dash-top">
+            <div class="chips" role="group" aria-label="Segment filter">
+              <button class="chip" data-seg="all" aria-pressed="true">All segments</button>
+              <button class="chip" data-seg="new" aria-pressed="false">New</button>
+              <button class="chip" data-seg="returning" aria-pressed="false">Returning</button>
+              <button class="chip" data-seg="premium" aria-pressed="false">Premium</button>
+            </div>
+            <p class="synthetic-tag">Synthetic data, generated for this page.</p>
+          </div>
+
+          <div class="kpi-grid">
+            <div class="kpi c1"><p class="k-label">Active customers</p><p class="k-val" id="kpiActive">—</p></div>
+            <div class="kpi c2"><p class="k-label">12-month retention</p><p class="k-val" id="kpiRetention">—</p></div>
+            <div class="kpi c3"><p class="k-label">At risk of churn</p><p class="k-val" id="kpiRisk">—</p></div>
+            <div class="kpi c4"><p class="k-label">Revenue protected</p><p class="k-val" id="kpiRevenue">—</p></div>
+          </div>
+
+          <div class="dash-charts">
+            <div class="chart-box">
+              <h4>Cohort retention heatmap</h4>
+              <p class="sub">Rows: joining cohort. Columns: months since joining.</p>
+              <div id="heatmap" role="img" aria-label="Cohort retention heatmap. Retention percentage decreases moving right across months and varies by joining cohort. Colour scale: magenta is low retention, violet is mid, cyan is high."></div>
+            </div>
+            <div class="chart-box">
+              <h4>Churn risk vs revenue</h4>
+              <p class="sub">Bubble size: customer count. Highlighted bubble: highest risk × revenue.</p>
+              <svg class="bubble-svg" id="bubbleChart" viewBox="0 0 340 260" role="img" aria-label="Bubble chart of churn risk against revenue per customer, one bubble per segment, sized by customer count."></svg>
+            </div>
+          </div>
+
+          <p class="takeaway" id="takeaway"></p>
+        </div>
+      </article>
+
+      <article class="card reveal-el" data-spot="1">
+        <div class="card-top">
+          <div class="pills">
+            <span class="pill">Voice of customer</span>
+            <span class="pill">NLP</span>
+            <span class="pill">Sentiment</span>
+          </div>
+          <span class="sample-badge">Sample</span>
+        </div>
+        <h3>Thousands of free-text complaints, ranked by what to fix first</h3>
+        <p>Open-text feedback is the most honest data a company has and the least used, because reading it does not scale. This clusters it, scores sentiment, and ranks issues by frequency against how badly they land. <strong>Volume alone picks the wrong target</strong> and anger alone picks a rare one.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="about" aria-label="Background">
+    <div class="section-head reveal-el">
+      <h2>Background</h2>
+    </div>
+    <div class="bio reveal-el">
+      <p>Customer Experience Data Analyst, XPENG France, 2026 to present. Before that, market and data analysis roles across consulting and operations since 2022.</p>
+      <p>MSc Big Data and Artificial Intelligence, Montpellier Business School, 2024 to 2026. BSc Mathematics, MDSU India.</p>
+    </div>
+    <div class="skill-grid">
+      <div class="skill-block reveal-el">
+        <h4>Data and BI</h4>
+        <p>Python (pandas, numpy, scikit-learn), SQL, Power BI, R, Google Analytics</p>
+      </div>
+      <div class="skill-block reveal-el">
+        <h4>AI and automation</h4>
+        <p>LLM agents, n8n, RAG, text-to-SQL, NLP and sentiment analysis</p>
+      </div>
+      <div class="skill-block reveal-el">
+        <h4>Ways of working</h4>
+        <p>Comfortable owning a question end to end, from the stakeholder conversation to the thing that ships</p>
+      </div>
+      <div class="skill-block reveal-el">
+        <h4>Languages</h4>
+        <p>English fluent. French professional, used daily at work. Hindi native.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-label="Contact">
+    <div class="contact-inner reveal-el">
+      <h2>Let's talk</h2>
+      <p>Looking for a permanent data or analytics role in France, somewhere the automation half of the work is taken seriously.</p>
+      <div class="contact-links">
+        <a href="mailto:narpatganwliya678@gmail.com">narpatganwliya678@gmail.com<span class="arrow" aria-hidden="true">→</span></a>
+        <a href="https://linkedin.com/in/narpat-ganwliya" target="_blank" rel="noopener">linkedin.com/in/narpat-ganwliya<span class="arrow" aria-hidden="true">→</span></a>
+        <a href="https://github.com/narpatganwliya7" target="_blank" rel="noopener">github.com/narpatganwliya7<span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Narpat Ganwliya</span>
+    <span>Work section: sample projects, replaced with live builds as they ship.</span>
+  </footer>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+(function(){
+"use strict";
+var reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------------- toast ---------------- */
+var toastEl = document.getElementById('toast'), toastTimer;
+function say(msg){
+  toastEl.textContent = msg;
+  toastEl.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 1700);
+}
+
+/* ---------------- nav ---------------- */
+var menuBtn = document.getElementById('menuBtn'), menuPanel = document.getElementById('menuPanel');
+function closeMenu(){
+  menuPanel.classList.remove('open');
+  menuBtn.setAttribute('aria-expanded','false');
+  menuPanel.setAttribute('aria-hidden','true');
+}
+function openMenu(){
+  menuPanel.classList.add('open');
+  menuBtn.setAttribute('aria-expanded','true');
+  menuPanel.setAttribute('aria-hidden','false');
+}
+menuBtn.addEventListener('click', function(){
+  var open = menuBtn.getAttribute('aria-expanded') === 'true';
+  if(open){ closeMenu(); } else { openMenu(); }
+});
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape' && menuBtn.getAttribute('aria-expanded') === 'true'){
+    closeMenu(); menuBtn.focus();
+  }
+});
+document.addEventListener('pointerdown', function(e){
+  if(menuBtn.getAttribute('aria-expanded') !== 'true') return;
+  if(menuPanel.contains(e.target) || menuBtn.contains(e.target)) return;
+  closeMenu();
+}, true);
+
+var allNavLinks = document.querySelectorAll('.nav-pill a, .menu-panel a');
+allNavLinks.forEach(function(a){
+  a.addEventListener('click', function(){
+    var label = a.textContent;
+    allNavLinks.forEach(function(l){ l.classList.toggle('active', l.textContent === label); });
+    closeMenu();
+  });
+});
+
+/* ---------------- scroll reveal ---------------- */
+var revealEls = document.querySelectorAll('.reveal-el');
+if('IntersectionObserver' in window && !reduceMotion){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, {threshold:.12});
+  revealEls.forEach(function(el){ io.observe(el); });
+} else {
+  revealEls.forEach(function(el){ el.classList.add('in'); });
+}
+
+/* ---------------- card cursor spotlight ---------------- */
+document.querySelectorAll('.card').forEach(function(card){
+  card.addEventListener('pointermove', function(e){
+    var r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+    card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+  });
+});
+
+/* ---------------- reveal-demo: cursor spotlight mask (raw -> structured) ---------------- */
+(function(){
+  var demo = document.getElementById('revealDemo');
+  if(!demo) return;
+  var stack = document.getElementById('revealStack');
+  var scatterSvg = demo.querySelector('.reveal-scatter');
+  var gridSvg = document.getElementById('revealGrid');
+  var back = gridSvg;
+  var canvas = document.getElementById('revealMaskCanvas');
+  var ctx = canvas.getContext('2d');
+  var W = 220, H = 150;
+
+  var scatterFrag = '';
+  var rng = mulberry32(7);
+  for(var i=0;i<70;i++){
+    var x = (rng()*W).toFixed(1), y = (rng()*H).toFixed(1), r = (1+rng()*1.6).toFixed(1);
+    var c = [ '#9aa6bd', '#5b6780', '#9aa6bd' ][i%3];
+    scatterFrag += '<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="'+c+'" opacity="'+(0.35+rng()*0.4).toFixed(2)+'"/>';
+  }
+  scatterSvg.innerHTML = scatterFrag;
+
+  var gridFrag = '';
+  for(var gx=10; gx<=W; gx+=22){
+    gridFrag += '<line x1="'+gx+'" y1="0" x2="'+gx+'" y2="'+H+'" stroke="#22d3ee" stroke-width="1" opacity=".55"/>';
+  }
+  for(var gy=10; gy<=H; gy+=22){
+    gridFrag += '<line x1="0" y1="'+gy+'" x2="'+W+'" y2="'+gy+'" stroke="#a855f7" stroke-width="1" opacity=".4"/>';
+  }
+  var barRng = mulberry32(41);
+  for(var bx=16, bi=0; bx<W-6; bx+=22, bi++){
+    var bh = 10 + barRng()*54;
+    gridFrag += '<rect x="'+(bx-5)+'" y="'+(H-bh)+'" width="10" height="'+bh.toFixed(1)+'" rx="2" fill="'+(bi%2? '#ec4899':'#fbbf24')+'" opacity=".85"/>';
+  }
+  gridSvg.innerHTML = gridFrag;
+
+  function mulberry32(a){ return function(){ a|=0; a=a+0x6D2B79F5|0; var t=Math.imul(a^a>>>15,1|a); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
+
+  var R = 60;
+  var mouse = {x:-9999,y:-9999}, smooth = {x:-9999,y:-9999};
+  var active = false;
+
+  function resize(){ canvas.width = stack.offsetWidth; canvas.height = stack.offsetHeight; }
+  resize();
+  window.addEventListener('resize', resize, {passive:true});
+
+  stack.addEventListener('pointermove', function(e){
+    var r = stack.getBoundingClientRect();
+    var sx = stack.offsetWidth / r.width, sy = stack.offsetHeight / r.height;
+    var wasResting = mouse.x <= -9000;
+    mouse.x = (e.clientX - r.left) * sx;
+    mouse.y = (e.clientY - r.top) * sy;
+    if(wasResting){ smooth.x = mouse.x; smooth.y = mouse.y; }
+    active = true;
+  });
+  stack.addEventListener('pointerleave', function(){ mouse.x=-9999; mouse.y=-9999; active=false; });
+
+  function render(x,y){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    var grad = ctx.createRadialGradient(x,y,0,x,y,R);
+    grad.addColorStop(0,'rgba(255,255,255,1)');
+    grad.addColorStop(0.62,'rgba(255,255,255,1)');
+    grad.addColorStop(0.8,'rgba(255,255,255,0.5)');
+    grad.addColorStop(1,'rgba(255,255,255,0)');
+    ctx.fillStyle = grad;
+    ctx.beginPath(); ctx.arc(x,y,R,0,Math.PI*2); ctx.fill();
+    var url = canvas.toDataURL();
+    back.style.maskImage = 'url('+url+')';
+    back.style.webkitMaskImage = 'url('+url+')';
+  }
+
+  function loop(){
+    smooth.x += (mouse.x - smooth.x) * 0.12;
+    smooth.y += (mouse.y - smooth.y) * 0.12;
+    render(smooth.x, smooth.y);
+    requestAnimationFrame(loop);
+  }
+  if(!reduceMotion){ loop(); } else { render(canvas.width/2, canvas.height/2); }
+
+  if('IntersectionObserver' in window){
+    var io2 = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ demo.classList.toggle('on', en.isIntersecting); });
+    }, {threshold:.3});
+    io2.observe(demo);
+  } else { demo.classList.add('on'); }
+})();
+
+/* ---------------- particle morph hero ---------------- */
+(function(){
+  var canvas = document.getElementById('particle-canvas');
+  var heroPin = document.getElementById('home');
+  var captions = document.querySelectorAll('.caption');
+  var isMobile = window.innerWidth < 760;
+  var COUNT = reduceMotion ? 1 : (isMobile ? 9000 : 25000);
+
+  function buildShapes(n){
+    var scatter = new Float32Array(n*3), sphere = new Float32Array(n*3),
+        bars = new Float32Array(n*3), funnel = new Float32Array(n*3);
+    var cScatter = new Float32Array(n*3), cSphere = new Float32Array(n*3),
+        cBars = new Float32Array(n*3), cFunnel = new Float32Array(n*3);
+    var CY = [0x22/255,0xd3/255,0xee/255], VI=[0xa8/255,0x55/255,0xf7/255],
+        MG=[0xec/255,0x48/255,0x99/255], AM=[0xfb/255,0xbf/255,0x24/255];
+    function mix(o,idx,a,t){ o[idx]=a[0]; o[idx+1]=a[1]; o[idx+2]=a[2]; }
+    function lerp3(o,idx,a,b,t){ o[idx]=a[0]+(b[0]-a[0])*t; o[idx+1]=a[1]+(b[1]-a[1])*t; o[idx+2]=a[2]+(b[2]-a[2])*t; }
+
+    var rng = (function(a){ return function(){ a|=0; a=a+0x6D2B79F5|0; var t=Math.imul(a^a>>>15,1|a); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; })(1234567);
+
+    for(var i=0;i<n;i++){
+      var idx = i*3;
+      /* 01 scatter: formless cloud, colour random across all four accents */
+      var rr = 6 + rng()*7;
+      var th = rng()*Math.PI*2, ph = Math.acos(2*rng()-1);
+      scatter[idx]   = rr*Math.sin(ph)*Math.cos(th) + (rng()-0.5)*3;
+      scatter[idx+1] = rr*Math.cos(ph) + (rng()-0.5)*3;
+      scatter[idx+2] = rr*Math.sin(ph)*Math.sin(th) + (rng()-0.5)*3;
+      var pick = rng();
+      var col = pick<0.25?CY:pick<0.5?VI:pick<0.75?MG:AM;
+      mix(cScatter, idx, col);
+
+      /* 02 sphere: structured surface, banded colour by latitude */
+      var golden = Math.PI*(3-Math.sqrt(5));
+      var yv = 1 - (i/(n-1))*2;
+      var radiusAtY = Math.sqrt(1-yv*yv);
+      var thetaG = golden*i;
+      var SR = 7.4;
+      sphere[idx]   = Math.cos(thetaG)*radiusAtY*SR;
+      sphere[idx+1] = yv*SR;
+      sphere[idx+2] = Math.sin(thetaG)*radiusAtY*SR;
+      var lat = (yv+1)/2;
+      if(lat<0.5) lerp3(cSphere, idx, MG, VI, lat*2);
+      else lerp3(cSphere, idx, VI, CY, (lat-0.5)*2);
+
+      /* 03 bar grid: 24x24 columns, bar-chart heights */
+      var cols = 24;
+      var col2 = i % (cols*cols);
+      var gx = col2 % cols, gz = Math.floor(col2/cols) % cols;
+      var seed = Math.sin(gx*12.9898+gz*78.233)*43758.5453; seed -= Math.floor(seed);
+      var h = 1 + seed*9;
+      var within = Math.floor(i/(cols*cols));
+      var totalWithin = Math.max(1, Math.floor(n/(cols*cols)));
+      var frac = within/totalWithin;
+      bars[idx]   = (gx-cols/2)*0.62 + (rng()-0.5)*0.12;
+      bars[idx+1] = -4.5 + frac*h;
+      bars[idx+2] = (gz-cols/2)*0.62 + (rng()-0.5)*0.12;
+      var barCol = (gx+gz)%2===0 ? AM : CY;
+      mix(cBars, idx, barCol);
+
+      /* 04 funnel: wide top, tight exit, gradient violet -> magenta/cyan */
+      var t2 = rng();
+      var yF = 7 - t2*13;
+      var radF = (0.7 + (1-t2)*6.2);
+      var thF = rng()*Math.PI*2;
+      funnel[idx]   = Math.cos(thF)*radF;
+      funnel[idx+1] = yF;
+      funnel[idx+2] = Math.sin(thF)*radF;
+      if(t2<0.5) lerp3(cFunnel, idx, VI, CY, t2*2);
+      else lerp3(cFunnel, idx, CY, MG, (t2-0.5)*2);
+    }
+    return {pos:[scatter,sphere,bars,funnel], col:[cScatter,cSphere,cBars,cFunnel]};
+  }
+
+  function smoothstep(t){ t = Math.max(0,Math.min(1,t)); return t*t*(3-2*t); }
+
+  var useThree = typeof THREE !== 'undefined' && (function(){
+    try{ var c=document.createElement('canvas'); return !!(window.WebGLRenderingContext && (c.getContext('webgl')||c.getContext('experimental-webgl'))); }
+    catch(e){ return false; }
+  })();
+
+  var progress = 0, smoothProgress = 0, mouseX = 0, mouseY = 0;
+
+  function updateProgress(){
+    var rect = heroPin.getBoundingClientRect();
+    var total = heroPin.offsetHeight - window.innerHeight;
+    var scrolled = -rect.top;
+    var p = total>0 ? scrolled/total : 0;
+    progress = Math.max(0, Math.min(1, p)) * 3;
+    var stage = progress < 0.85 ? 0 : (progress < 1.9 ? 1 : (progress < 2.4 ? 2 : 3));
+    captions.forEach(function(c){
+      c.classList.toggle('show', parseInt(c.getAttribute('data-stage'),10) === stage);
+    });
+  }
+  window.addEventListener('scroll', updateProgress, {passive:true});
+  window.addEventListener('resize', updateProgress, {passive:true});
+  updateProgress();
+
+  window.addEventListener('pointermove', function(e){
+    mouseX = (e.clientX/window.innerWidth - 0.5);
+    mouseY = (e.clientY/window.innerHeight - 0.5);
+  }, {passive:true});
+
+  var paused = false;
+  document.addEventListener('visibilitychange', function(){ paused = document.hidden; });
+
+  if(useThree){
+    var renderer = new THREE.WebGLRenderer({canvas:canvas, alpha:true, antialias:false});
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio||1, 2));
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(50, window.innerWidth/window.innerHeight, 0.1, 100);
+    camera.position.set(0,0,20);
+
+    var shapes = buildShapes(COUNT);
+    var geo = new THREE.BufferGeometry();
+    var posAttr = new THREE.Float32BufferAttribute(new Float32Array(COUNT*3), 3);
+    var colAttr = new THREE.Float32BufferAttribute(new Float32Array(COUNT*3), 3);
+    geo.setAttribute('position', posAttr);
+    geo.setAttribute('color', colAttr);
+    var mat = new THREE.PointsMaterial({size:isMobile?0.085:0.07, vertexColors:true, transparent:true, opacity:0.92, blending:THREE.AdditiveBlending, depthWrite:false, sizeAttenuation:true});
+    var points = new THREE.Points(geo, mat);
+    scene.add(points);
+
+    function resizeThree(){
+      renderer.setSize(window.innerWidth, window.innerHeight, false);
+      camera.aspect = window.innerWidth/window.innerHeight;
+      camera.updateProjectionMatrix();
+    }
+    resizeThree();
+    window.addEventListener('resize', resizeThree, {passive:true});
+
+    var posArr = posAttr.array, colArr = colAttr.array;
+    function frame(){
+      requestAnimationFrame(frame);
+      if(paused) return;
+      smoothProgress += (progress - smoothProgress) * (reduceMotion?1:0.08);
+      var lo = Math.min(3, Math.floor(smoothProgress));
+      var hi = Math.min(3, lo+1);
+      var t = smoothstep(smoothProgress - lo);
+      var A = shapes.pos[lo], B = shapes.pos[hi], CA = shapes.col[lo], CB = shapes.col[hi];
+      for(var i=0;i<posArr.length;i++){
+        posArr[i] = A[i] + (B[i]-A[i])*t;
+        colArr[i] = CA[i] + (CB[i]-CA[i])*t;
+      }
+      posAttr.needsUpdate = true; colAttr.needsUpdate = true;
+      camera.position.x += (mouseX*2.2 - camera.position.x)*0.04;
+      camera.position.y += (-mouseY*1.4 - camera.position.y)*0.04;
+      camera.lookAt(0,0,0);
+      points.rotation.y += reduceMotion?0:0.0006;
+      renderer.render(scene, camera);
+    }
+    frame();
+  } else {
+    /* ---- 2D canvas fallback ---- */
+    var ctx2 = canvas.getContext('2d');
+    var n2 = Math.max(1, Math.floor(COUNT/6));
+    var shapes2 = buildShapes(n2);
+    function resize2(){ canvas.width = window.innerWidth * Math.min(devicePixelRatio||1,2); canvas.height = window.innerHeight * Math.min(devicePixelRatio||1,2); canvas.style.width='100%'; canvas.style.height='100%'; }
+    resize2();
+    window.addEventListener('resize', resize2, {passive:true});
+    function frame2(){
+      requestAnimationFrame(frame2);
+      if(paused) return;
+      smoothProgress += (progress - smoothProgress) * (reduceMotion?1:0.08);
+      var lo = Math.min(3, Math.floor(smoothProgress));
+      var hi = Math.min(3, lo+1);
+      var t = smoothstep(smoothProgress - lo);
+      var A = shapes2.pos[lo], B = shapes2.pos[hi], CA = shapes2.col[lo], CB = shapes2.col[hi];
+      var cx = canvas.width/2 + mouseX*40, cy = canvas.height/2 + mouseY*30;
+      var scale = Math.min(canvas.width, canvas.height) / 22;
+      ctx2.clearRect(0,0,canvas.width,canvas.height);
+      ctx2.globalCompositeOperation = 'lighter';
+      for(var i=0;i<n2;i++){
+        var idx = i*3;
+        var x = A[idx] + (B[idx]-A[idx])*t;
+        var y = A[idx+1] + (B[idx+1]-A[idx+1])*t;
+        var r = Math.round((CA[idx]+(CB[idx]-CA[idx])*t)*255);
+        var g = Math.round((CA[idx+1]+(CB[idx+1]-CA[idx+1])*t)*255);
+        var b = Math.round((CA[idx+2]+(CB[idx+2]-CA[idx+2])*t)*255);
+        ctx2.fillStyle = 'rgba('+r+','+g+','+b+',0.75)';
+        ctx2.beginPath();
+        ctx2.arc(cx + x*scale, cy - y*scale, 1.4, 0, Math.PI*2);
+        ctx2.fill();
+      }
+      ctx2.globalCompositeOperation = 'source-over';
+    }
+    frame2();
+  }
+})();
+
+/* ---------------- dashboard ---------------- */
+(function(){
+  var dash = document.getElementById('dashboard');
+  if(!dash) return;
+  function mulberry32(a){ return function(){ a|=0; a=a+0x6D2B79F5|0; var t=Math.imul(a^a>>>15,1|a); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
+  var rng = mulberry32(20260920);
+
+  var cohortNames = ['Jan','Feb','Mar','Apr','May','Jun'];
+  var baseRetention = [];
+  for(var c=0;c<6;c++){
+    var cols = 6-c;
+    var row = [];
+    var val = 92 + rng()*4;
+    for(var m=0;m<cols;m++){
+      val -= (4 + rng()*7) * (m===0?0.4:1);
+      row.push(Math.max(18, Math.min(96, val)));
+    }
+    baseRetention.push(row);
+  }
+
+  var segMult = {
+    all:      {active:1,    retention:1,    risk:1,    revenue:1},
+    new:      {active:.34,  retention:.78,  risk:1.55, revenue:.42},
+    returning:{active:.44,  retention:1.05, risk:.85,  revenue:.9},
+    premium:  {active:.22,  retention:1.22, risk:.5,   revenue:2.1}
+  };
+
+  var baseActive = 8420, baseRet12 = 61, baseRisk = 1140, baseRevenue = 286000;
+
+  var bubbleSegments = [
+    {name:'New',        revenue:38,  risk:62, count:2860, col:'#22d3ee'},
+    {name:'Returning',  revenue:74,  risk:38, count:3700, col:'#a855f7'},
+    {name:'Premium',    revenue:196, risk:21, count:1310, col:'#fbbf24'},
+    {name:'At risk',    revenue:112, risk:81, count:960,  col:'#ec4899'}
+  ];
+
+  function fmtNum(n){ return Math.round(n).toLocaleString('en-US'); }
+  function fmtMoney(n){ return '€' + (n>=1000? (n/1000).toFixed(0)+'k' : Math.round(n)); }
+
+  function heatColor(v){
+    var t = Math.max(0, Math.min(1, (v-30)/60));
+    var stops = t<0.5
+      ? lerpHex('#ec4899','#a855f7', t*2)
+      : lerpHex('#a855f7','#22d3ee', (t-0.5)*2);
+    return stops;
+  }
+  function lerpHex(a,b,t){
+    var pa = hexToRgb(a), pb = hexToRgb(b);
+    var r = Math.round(pa[0]+(pb[0]-pa[0])*t), g = Math.round(pa[1]+(pb[1]-pa[1])*t), bl = Math.round(pa[2]+(pb[2]-pa[2])*t);
+    return 'rgb('+r+','+g+','+bl+')';
+  }
+  function hexToRgb(h){ h=h.replace('#',''); return [parseInt(h.substr(0,2),16),parseInt(h.substr(2,2),16),parseInt(h.substr(4,2),16)]; }
+
+  var heatmapEl = document.getElementById('heatmap');
+  function renderHeatmap(){
+    var maxCols = baseRetention[0].length;
+    var html = '';
+    for(var c=0;c<baseRetention.length;c++){
+      html += '<div class="heat-row"><span class="heat-cohort-label">'+cohortNames[c]+'</span><div class="heat-cells" style="--heat-cols:'+maxCols+'">';
+      for(var m=0;m<baseRetention[c].length;m++){
+        var v = baseRetention[c][m];
+        html += '<div class="heat-cell" style="background:'+heatColor(v)+'" tabindex="0" aria-label="'+cohortNames[c]+' cohort, month '+m+', '+Math.round(v)+' percent retained" title="'+cohortNames[c]+' · month '+m+' · '+Math.round(v)+'%">'+Math.round(v)+'</div>';
+      }
+      html += '</div></div>';
+    }
+    heatmapEl.innerHTML = html;
+  }
+  renderHeatmap();
+
+  var bubbleSvg = document.getElementById('bubbleChart');
+  function renderBubbles(mult){
+    var W=340,H=260, padL=36, padB=30, padT=14, padR=14;
+    var maxRev = 220, maxRisk = 100;
+    var top = bubbleSegments.reduce(function(a,b){ return (a.revenue*(100-a.risk)) > (b.revenue*(100-b.risk)) ? a : b; });
+    var svg = '';
+    svg += '<line x1="'+padL+'" y1="'+(H-padB)+'" x2="'+(W-padR)+'" y2="'+(H-padB)+'" stroke="#5b6780" stroke-width="1"/>';
+    svg += '<line x1="'+padL+'" y1="'+padT+'" x2="'+padL+'" y2="'+(H-padB)+'" stroke="#5b6780" stroke-width="1"/>';
+    svg += '<text x="'+(padL+(W-padL-padR)/2)+'" y="'+(H-6)+'" fill="#9aa6bd" font-size="11" text-anchor="middle">Revenue per customer (€)</text>';
+    svg += '<text x="12" y="'+(padT+(H-padB-padT)/2)+'" fill="#9aa6bd" font-size="11" text-anchor="middle" transform="rotate(-90 12 '+(padT+(H-padB-padT)/2)+')">Churn risk (%)</text>';
+    bubbleSegments.forEach(function(s){
+      var rev = s.revenue * mult.revenue;
+      var risk = Math.min(96, s.risk * mult.risk);
+      var count = s.count * mult.active;
+      var x = padL + Math.min(1, rev/maxRev) * (W-padL-padR);
+      var y = padT + (1 - Math.min(1, risk/maxRisk)) * (H-padB-padT);
+      var r = 8 + Math.sqrt(count)/9;
+      var isTop = s.name === top.name;
+      svg += '<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="'+r.toFixed(1)+'" fill="'+s.col+'" opacity="'+(isTop?0.95:0.7)+'" stroke="'+(isTop?'#f2f5fa':'none')+'" stroke-width="'+(isTop?2:0)+'"><title>'+s.name+': €'+Math.round(rev)+' revenue, '+Math.round(risk)+'% churn risk, '+fmtNum(count)+' customers</title></circle>';
+      svg += '<text x="'+x.toFixed(1)+'" y="'+(y - r - 6).toFixed(1)+'" fill="#f2f5fa" font-size="11" text-anchor="middle">'+s.name+'</text>';
+    });
+    bubbleSvg.innerHTML = svg;
+  }
+
+  var kpiActive = document.getElementById('kpiActive'), kpiRetention = document.getElementById('kpiRetention'),
+      kpiRisk = document.getElementById('kpiRisk'), kpiRevenue = document.getElementById('kpiRevenue'),
+      takeaway = document.getElementById('takeaway');
+
+  function renderKpis(seg){
+    var mult = segMult[seg];
+    kpiActive.textContent = fmtNum(baseActive*mult.active);
+    kpiRetention.textContent = Math.round(baseRet12*mult.retention) + '%';
+    kpiRisk.textContent = fmtNum(baseRisk*mult.active*mult.risk);
+    kpiRevenue.textContent = fmtMoney(baseRevenue*mult.revenue*mult.active);
+    renderBubbles(mult);
+    var lines = {
+      all: 'Premium customers churn at roughly half the rate of New customers but carry more than twice the revenue at risk — <b>retention budget belongs there, not in acquisition</b>.',
+      new: 'New customers show the highest churn risk and the lowest revenue per head — expected, but it means the 12-month retention number here is an early-life problem, not a value problem.',
+      returning: 'Returning customers sit in the middle on every axis — the segment where a small retention lift compounds the most because volume is high and risk is moderate.',
+      premium: 'Premium customers are the smallest segment by count and the lowest churn risk, but each lost account costs several times a New-segment loss — <b>worth a dedicated save-offer, not a generic one</b>.'
+    };
+    takeaway.innerHTML = lines[seg];
+  }
+
+  var chips = dash.querySelectorAll('.chip');
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.setAttribute('aria-pressed', c===chip ? 'true':'false'); });
+      renderKpis(chip.getAttribute('data-seg'));
+    });
+  });
+  renderKpis('all');
+})();
+
+/* ---------------- entrance animation (WAAPI) ---------------- */
+(function(){
+  if(!document.documentElement.classList.contains('intro') || !Element.prototype.animate) return;
+  var TYPE = 'cubic-bezier(.16,1,.3,1)';
+  function run(els, kf, dur, at, stagger, easing){
+    els = els.length===undefined ? [els] : els;
+    var anims = [];
+    els.forEach(function(el,i){
+      anims.push(el.animate(kf, {duration:dur*1000, delay:(at+i*(stagger||0))*1000, fill:'both', easing:easing||TYPE}));
+    });
+    return anims;
+  }
+  function fadeUp(px){ return [{opacity:0, transform:'translateY('+px+'px)'},{opacity:1, transform:'none'}]; }
+  var all = [];
+  all = all.concat(run(document.querySelectorAll('.site-nav > *'), fadeUp(-10), .5, .08, .07));
+  all = all.concat(run(document.querySelector('.eyebrow'), fadeUp(10), .5, .18));
+  all = all.concat(run(document.querySelector('h1'), fadeUp(18), .8, .26));
+  all = all.concat(run(document.querySelector('.hero-line'), fadeUp(14), .7, .4));
+  all = all.concat(run(document.querySelector('.scroll-hint'), fadeUp(8), .5, .7));
+
+  var maxEnd = 0, last = null;
+  all.forEach(function(a){
+    var end = (a.effect.getTiming().delay||0) + (a.effect.getTiming().duration||0);
+    if(end > maxEnd){ maxEnd = end; last = a; }
+  });
+  if(last){
+    last.addEventListener('finish', function(){
+      document.documentElement.classList.remove('intro');
+      all.forEach(function(a){ a.cancel(); });
+    });
+  } else {
+    document.documentElement.classList.remove('intro');
+  }
+})();
+
+/* ---------------- social toasts (contact links) ---------------- */
+document.querySelectorAll('.contact-links a').forEach(function(a){
+  a.addEventListener('click', function(){ say('Opening ' + a.textContent.replace('→','').trim()); });
+});
+})();
+</script>
+</body>
+</html>
